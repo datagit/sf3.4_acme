@@ -1,0 +1,13 @@
+stof_doctrine_extensions:
+    orm:
+        default:
+            blameable: true
+    class:
+#        tree:           MyBundle\TreeListener
+        timestampable:  ~
+        blameable:      ~
+        sluggable:      ~
+#        translatable:   ~
+        loggable:       ~
+#        softdeleteable: ~
+#        uploadable:     ~

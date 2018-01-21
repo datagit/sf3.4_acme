@@ -1,0 +1,13 @@
+easy_admin:
+    entities:
+        Comment:
+            class: AppBundle\Entity\Comment
+            list:
+                fields:
+                    ['id', 'content', 'publishedAt', 'author', 'post']
+            form:
+                fields:
+                    - { property: 'content' }
+                    - { property: 'publishedAt' }
+                    - { property: 'author', type: 'entity', type_options: { multiple: false, class: 'AppBundle\Entity\User', attr: { data-widget: 'select2' } } }
+                    - { property: 'post',   type: 'entity', type_options: { multiple: false, class: 'AppBundle\Entity\Post', attr: { data-widget: 'select2' } } }

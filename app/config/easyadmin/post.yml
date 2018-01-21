@@ -1,0 +1,15 @@
+easy_admin:
+    entities:
+        Post:
+            class: AppBundle\Entity\Post
+            list:
+                fields:
+                    ['id', 'title', 'summary', 'content', 'publishedAt', 'author', 'tags']
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'summary' }
+                    - { property: 'content' }
+                    - { property: 'publishedAt' }
+                    - { property: 'author', type: 'entity', type_options: { multiple: false, class: 'AppBundle\Entity\User', attr: { data-widget: 'select2' } } }
+                    - { property: 'tags', type: 'entity', type_options: { multiple: true, class: 'AppBundle\Entity\Tag', attr: { data-widget: 'select2' } } }

@@ -1,0 +1,10 @@
+easy_admin:
+    entities:
+        Tag:
+            class: AppBundle\Entity\Tag
+            list:
+                fields:
+                    ['id', 'name']
+            form:
+                fields:
+                    - { property: 'name' }
