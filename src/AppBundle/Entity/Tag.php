@@ -3,12 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Tag
  *
  * @ORM\Table(name="tag")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
+ * @ApiResource
  * Defines the properties of the Tag entity to represent the post tags.
  *
  * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
