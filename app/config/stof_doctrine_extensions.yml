@@ -2,12 +2,16 @@ stof_doctrine_extensions:
     orm:
         default:
             blameable: true
-    class:
-#        tree:           MyBundle\TreeListener
-        timestampable:  ~
-        blameable:      ~
-        sluggable:      ~
-#        translatable:   ~
-        loggable:       ~
-#        softdeleteable: ~
-#        uploadable:     ~
+            sortable: true
+            timestampable: true
+            sluggable: true
+#            ip_traceable: true
+#            iptraceable: true
+#services:
+#    gedmo_doctrine_extensions.listener.ip_traceable:
+#        class: Gedmo\IpTraceable\IpTraceableListener
+#        public: false
+#        tags:
+#            - { name: doctrine.event_subscriber, connection: default }
+#        calls:
+#            - [setAnnotationReader, [ "@annotation_reader"]]

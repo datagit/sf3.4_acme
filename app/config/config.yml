@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: easyadmin/ }
+    - { resource: stof_doctrine_extensions.yml }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -59,7 +61,6 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
@@ -83,15 +84,3 @@ api_platform:
     enable_fos_user: true
 framework:
     form: { enabled: true }
-#enable_nelmio_api_doc: true
-
-#nelmio_api_doc:
-#    sandbox:
-#        accept_type: 'application/json'
-#        body_format:
-#            formats: ['json']
-#            default_format: 'json'
-#        request_format:
-#            formats:
-#                json: 'application/json'
-#ed for APi

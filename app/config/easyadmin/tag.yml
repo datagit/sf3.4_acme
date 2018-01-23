@@ -4,7 +4,11 @@ easy_admin:
             class: AppBundle\Entity\Tag
             list:
                 fields:
-                    ['id', 'name']
+                    ['id', 'name', 'position']
+                sort: ['position', 'ASC']
+            search:
+                sort: ['name', 'ASC']
             form:
                 fields:
                     - { property: 'name' }
+                    - { property: 'position' }

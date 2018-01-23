@@ -26,5 +26,9 @@ $ composer require "doctrine/doctrine-fixtures-bundle"
 #https://symfony.com/doc/current/bundles/EasyAdminBundle/book/installation.html
 $ composer require javiereguiluz/easyadmin-bundle
 # https://github.com/symfony/demo/blob/master/src/Entity/Post.php
+$ sudo -u datdm php bin/console doctrine:schema:update --force
+$ php bin/console doctrine:mapping:info
+# https://symfony.com/doc/current/bundles/StofDoctrineExtensionsBundle/index.html
+# https://github.com/Atlantic18/DoctrineExtensions/tree/v2.4.x/doc
 
 ```
