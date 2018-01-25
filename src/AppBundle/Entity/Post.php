@@ -46,7 +46,7 @@ class Post
 
     /**
      * @var string
-     *
+     * @Gedmo\Slug(fields={"title", "id"})
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
