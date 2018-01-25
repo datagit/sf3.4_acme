@@ -30,5 +30,8 @@ $ sudo -u datdm php bin/console doctrine:schema:update --force
 $ php bin/console doctrine:mapping:info
 # https://symfony.com/doc/current/bundles/StofDoctrineExtensionsBundle/index.html
 # https://github.com/Atlantic18/DoctrineExtensions/tree/v2.4.x/doc
+# http://symfony.com/doc/current/bundles/EasyAdminBundle/index.html
+# https://knpuniversity.com/screencast/easyadminbundle
+# http://docs.ansible.com/ansible/latest/YAMLSyntax.html
 
 ```

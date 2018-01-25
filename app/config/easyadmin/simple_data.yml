@@ -1,0 +1,11 @@
+parameters:
+#http://docs.ansible.com/ansible/latest/YAMLSyntax.html
+    simple_data.status:
+          Disabled: Disabled
+          Drafted: Drafted
+          Published: Published
+    simple_data.interesting:
+          Apple: Apple
+          Orange: Orange
+          Strawberry: Strawberry
+          Mango: Mango

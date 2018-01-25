@@ -93,6 +93,20 @@ class Post
      */
     private $tags;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="interesting", type="array", length=255, nullable=true)
+     */
+    private $interesting;
+
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
@@ -238,7 +252,7 @@ class Post
     {
         $this->author = $author;
     }
-    public function addTag(Tag ...$tags)
+    public function addTag(Tag $tags)
     {
         foreach ($tags as $tag) {
             if (!$this->tags->contains($tag)) {
@@ -250,7 +264,7 @@ class Post
     {
         $this->tags->removeElement($tag);
     }
-    public function getTags(): Collection
+    public function getTags()
     {
         return $this->tags;
     }
@@ -260,6 +274,40 @@ class Post
         // TODO: Implement __toString() method.
         return (string) $this->getTitle();
     }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return array
+     */
+    public function getInteresting()
+    {
+        return $this->interesting;
+    }
+
+    /**
+     * @param array $interesting
+     */
+    public function setInteresting($interesting)
+    {
+        $this->interesting = $interesting;
+    }
+
+    
 
 }
 

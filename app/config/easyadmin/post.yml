@@ -11,5 +11,7 @@ easy_admin:
                     - { property: 'summary' }
                     - { property: 'content' }
                     - { property: 'publishedAt' }
+                    - { property: 'status', type: 'choice', label: 'Status', type_options: { choices: '%simple_data.status%',expanded: false, multiple: false } }
+                    - { property: 'interesting', type: 'choice', label: 'Interesting', type_options: { choices: '%simple_data.interesting%', expanded: true, multiple: true } }
                     - { property: 'author', type: 'entity', type_options: { multiple: false, class: 'AppBundle\Entity\User', attr: { data-widget: 'select2' } } }
                     - { property: 'tags', type: 'entity', type_options: { multiple: true, class: 'AppBundle\Entity\Tag', attr: { data-widget: 'select2' } } }
