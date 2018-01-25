@@ -33,5 +33,6 @@ $ php bin/console doctrine:mapping:info
 # http://symfony.com/doc/current/bundles/EasyAdminBundle/index.html
 # https://knpuniversity.com/screencast/easyadminbundle
 # http://docs.ansible.com/ansible/latest/YAMLSyntax.html
+# https://stackoverflow.com/questions/16587769/doctrine-array-vs-simple-array-vs-json-array
 
 ```

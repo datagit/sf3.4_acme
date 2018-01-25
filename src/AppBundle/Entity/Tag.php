@@ -43,6 +43,13 @@ class Tag implements \JsonSerializable
     private $position;
 
     /**
+     * @var string $slug
+     * @Gedmo\Slug(fields={"name", "id"})
+     * @ORM\Column(length=128, unique=true, nullable=true)
+     */
+    private $slug;
+
+    /**
      * @var \DateTime $createdAt
      *
      * @Gedmo\Timestampable(on="create")
@@ -65,13 +72,6 @@ class Tag implements \JsonSerializable
      * @Gedmo\Timestampable(on="change", field={"position", "name"})
      */
     private $contentChangedAt;
-
-    /**
-     * @var string $slug
-     * @Gedmo\Slug(fields={"name", "id"})
-     * @ORM\Column(length=128, unique=true, nullable=true)
-     */
-    private $slug;
 
     /**
      * @var string $createdBy
