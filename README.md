@@ -36,4 +36,6 @@ $ php bin/console doctrine:mapping:info
 # https://stackoverflow.com/questions/16587769/doctrine-array-vs-simple-array-vs-json-array
 $ composer require vich/uploader-bundle
 # http://symfony.com/doc/current/bundles/EasyAdminBundle/integration/vichuploaderbundle.html
+$ composer require egeloen/ckeditor-bundle
+# http://symfony.com/doc/current/bundles/EasyAdminBundle/integration/ivoryckeditorbundle.html
 ```

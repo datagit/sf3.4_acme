@@ -8,8 +8,8 @@ easy_admin:
             form:
                 fields:
                     - { property: 'title' }
-                    - { property: 'summary' }
-                    - { property: 'content' }
+                    - { property: 'summary', type: 'ckeditor' }
+                    - { property: 'content', type: 'ckeditor' }
                     - { property: 'publishedAt' }
                     - { property: 'status', type: 'choice', label: 'Status', type_options: { choices: '%simple_data.status%',expanded: false, multiple: false } }
                     - { property: 'interesting', type: 'choice', label: 'Interesting', type_options: { choices: '%simple_data.interesting%', expanded: true, multiple: true } }
