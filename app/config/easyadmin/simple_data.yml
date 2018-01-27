@@ -9,3 +9,7 @@ parameters:
           Orange: Orange
           Strawberry: Strawberry
           Mango: Mango
+    simple_data.media_tag:
+          logo: Logo
+          image: image
+          document: document

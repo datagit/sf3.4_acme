@@ -1,0 +1,23 @@
+easy_admin:
+    entities:
+        Media:
+            class: AppBundle\Entity\Media
+            list:
+                fields:
+                    - { property: 'id'}
+                    - { property: 'tags'}
+                    - { property: 'mimeType'}
+                    - { property: 'createdAt'}
+                    - { property: 'updatedAt'}
+                    - { property: 'mediaName', type: 'image', base_path: '%app.path.uploads%' }
+#                sort: ['id', 'DESC']
+#            search:
+#                fields:
+#                    - { property: 'tags', searchField: 'tags' }
+#                    - { property: 'mediaName', searchField: 'mediaName'}
+#                sort: ['mediaName', 'ASC']
+            form:
+                fields:
+                    - { property: 'mediaName' }
+                    - { property: 'mediaFile', type: 'file' }
+                    - { property: 'tags', type: 'choice', label: 'Tags', type_options: { choices: '%simple_data.media_tag%', expanded: true, multiple: true } }

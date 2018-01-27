@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: easyadmin/ }
     - { resource: stof_doctrine_extensions.yml }
+    - { resource: vich_uploader.yml }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed
