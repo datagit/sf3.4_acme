@@ -154,7 +154,7 @@ class PhpIniRequirement extends Requirement
                 );
             }
 
-            $fulfilled = $evaluation == $cfgValue;
+            $fulfilled = $evaluation === $cfgValue;
         }
 
         parent::__construct($fulfilled || ($approveCfgAbsence && false === $cfgValue), $testMessage, $helpHtml, $helpText, $optional);
@@ -171,7 +171,7 @@ class RequirementCollection implements IteratorAggregate
     /**
      * @var Requirement[]
      */
-    private $requirements = array();
+    private $requirements = [];
 
     /**
      * Gets the current RequirementCollection as an Iterator.
@@ -260,7 +260,7 @@ class RequirementCollection implements IteratorAggregate
      *
      * @param RequirementCollection $collection A RequirementCollection instance
      */
-    public function addCollection(RequirementCollection $collection)
+    public function addCollection(self $collection)
     {
         $this->requirements = array_merge($this->requirements, $collection->all());
     }
@@ -282,7 +282,7 @@ class RequirementCollection implements IteratorAggregate
      */
     public function getRequirements()
     {
-        $array = array();
+        $array = [];
         foreach ($this->requirements as $req) {
             if (!$req->isOptional()) {
                 $array[] = $req;
@@ -299,7 +299,7 @@ class RequirementCollection implements IteratorAggregate
      */
     public function getFailedRequirements()
     {
-        $array = array();
+        $array = [];
         foreach ($this->requirements as $req) {
             if (!$req->isFulfilled() && !$req->isOptional()) {
                 $array[] = $req;
@@ -316,7 +316,7 @@ class RequirementCollection implements IteratorAggregate
      */
     public function getRecommendations()
     {
-        $array = array();
+        $array = [];
         foreach ($this->requirements as $req) {
             if ($req->isOptional()) {
                 $array[] = $req;
@@ -333,7 +333,7 @@ class RequirementCollection implements IteratorAggregate
      */
     public function getFailedRecommendations()
     {
-        $array = array();
+        $array = [];
         foreach ($this->requirements as $req) {
             if (!$req->isFulfilled() && $req->isOptional()) {
                 $array[] = $req;
@@ -389,7 +389,7 @@ class SymfonyRequirements extends RequirementCollection
     {
         /* mandatory requirements follow */
 
-        $installedPhpVersion = phpversion();
+        $installedPhpVersion = PHP_VERSION;
         $requiredPhpVersion = $this->getPhpRequiredVersion();
 
         $this->addRecommendation(
@@ -448,7 +448,7 @@ class SymfonyRequirements extends RequirementCollection
         }
 
         if (false !== $requiredPhpVersion && version_compare($installedPhpVersion, $requiredPhpVersion, '>=')) {
-            $timezones = array();
+            $timezones = [];
             foreach (DateTimeZone::listAbbreviations() as $abbreviations) {
                 foreach ($abbreviations as $abbreviation) {
                     $timezones[$abbreviation['timezone_id']] = true;
@@ -731,7 +731,7 @@ class SymfonyRequirements extends RequirementCollection
             'Install and/or enable a <strong>PHP accelerator</strong> (highly recommended).'
         );
 
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if ('WIN' === mb_strtoupper(mb_substr(PHP_OS, 0, 3))) {
             $this->addRecommendation(
                 $this->getRealpathCacheSize() >= 5 * 1024 * 1024,
                 'realpath_cache_size should be at least 5M in php.ini',
@@ -776,8 +776,8 @@ class SymfonyRequirements extends RequirementCollection
         $size = trim($size);
         $unit = '';
         if (!ctype_digit($size)) {
-            $unit = strtolower(substr($size, -1, 1));
-            $size = (int) substr($size, 0, -1);
+            $unit = mb_strtolower(mb_substr($size, -1, 1));
+            $size = (int) mb_substr($size, 0, -1);
         }
         switch ($unit) {
             case 'g':

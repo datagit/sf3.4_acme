@@ -1,18 +1,27 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Dat Dao <datagit@yahoo.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Tag
+ * Tag.
  *
  * @ORM\Table(name="tag")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
  * @ApiResource
- * 
+ *
  * Defines the properties of the Tag entity to represent the post tags.
  *
  * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
@@ -36,21 +45,21 @@ class Tag implements \JsonSerializable
     private $name;
 
     /**
-     * @var integer
+     * @var int
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer", nullable=true)
-    */
+     */
     private $position;
 
     /**
-     * @var string $slug
+     * @var string
      * @Gedmo\Slug(fields={"name", "id"})
      * @ORM\Column(length=128, unique=true, nullable=true)
      */
     private $slug;
 
     /**
-     * @var \DateTime $createdAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
@@ -58,7 +67,7 @@ class Tag implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var \DateTime $updatedAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
@@ -66,7 +75,7 @@ class Tag implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var \DateTime $contentChangedAt
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="change", field={"position", "name"})
@@ -74,7 +83,7 @@ class Tag implements \JsonSerializable
     private $contentChangedAt;
 
     /**
-     * @var string $createdBy
+     * @var string
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
@@ -82,7 +91,7 @@ class Tag implements \JsonSerializable
     private $createdBy;
 
     /**
-     * @var string $updatedBy
+     * @var string
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
@@ -90,16 +99,15 @@ class Tag implements \JsonSerializable
     private $updatedBy;
 
     /**
-     * @var string $contentChangedBy
+     * @var string
      *
      * @ORM\Column(name="content_changed_by", type="string", nullable=true)
      * @Gedmo\Blameable(on="change", field={"name", "position"})
      */
     private $contentChangedBy;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -109,7 +117,7 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -123,7 +131,7 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -133,10 +141,13 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Specify data which should be serialized to JSON
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * Specify data which should be serialized to JSON.
+     *
+     * @see http://php.net/manual/en/jsonserializable.jsonserialize.php
+     *
      * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
+     *               which is a value of any type other than a resource
+     *
      * @since 5.4.0
      */
     public function jsonSerialize()
@@ -280,7 +291,4 @@ class Tag implements \JsonSerializable
     {
         $this->contentChangedBy = $contentChangedBy;
     }
-
-
 }
-

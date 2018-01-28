@@ -1,18 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Dat Dao <datagit@yahoo.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Post
+ * Post.
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -23,7 +29,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * Tip: if you have an existing database, you can generate these entity class automatically.
  * See https://symfony.com/doc/current/cookbook/doctrine/reverse_engineering.html
- *
  */
 class Post
 {
@@ -109,7 +114,7 @@ class Post
     private $interesting;
 
     /**
-     * @var \DateTime $createdAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
@@ -117,7 +122,7 @@ class Post
     private $createdAt;
 
     /**
-     * @var \DateTime $updatedAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
@@ -125,7 +130,7 @@ class Post
     private $updatedAt;
 
     /**
-     * @var \DateTime $contentChangedAt
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="change", field={"position", "name"})
@@ -133,7 +138,7 @@ class Post
     private $contentChangedAt;
 
     /**
-     * @var string $createdBy
+     * @var string
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
@@ -141,7 +146,7 @@ class Post
     private $createdBy;
 
     /**
-     * @var string $updatedBy
+     * @var string
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
@@ -149,7 +154,7 @@ class Post
     private $updatedBy;
 
     /**
-     * @var string $contentChangedBy
+     * @var string
      *
      * @ORM\Column(name="content_changed_by", type="string", nullable=true)
      * @Gedmo\Blameable(on="change", field={"name", "position"})
@@ -162,9 +167,8 @@ class Post
         $this->tags = new ArrayCollection();
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -174,7 +178,7 @@ class Post
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -188,7 +192,7 @@ class Post
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -198,7 +202,7 @@ class Post
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -212,7 +216,7 @@ class Post
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -222,7 +226,7 @@ class Post
     }
 
     /**
-     * Set summary
+     * Set summary.
      *
      * @param string $summary
      *
@@ -236,7 +240,7 @@ class Post
     }
 
     /**
-     * Get summary
+     * Get summary.
      *
      * @return string
      */
@@ -246,7 +250,7 @@ class Post
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -260,7 +264,7 @@ class Post
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -270,7 +274,7 @@ class Post
     }
 
     /**
-     * Set publishedAt
+     * Set publishedAt.
      *
      * @param \DateTime $publishedAt
      *
@@ -284,7 +288,7 @@ class Post
     }
 
     /**
-     * Get publishedAt
+     * Get publishedAt.
      *
      * @return \DateTime
      */
@@ -297,10 +301,12 @@ class Post
     {
         return $this->author;
     }
+
     public function setAuthor(User $author)
     {
         $this->author = $author;
     }
+
     public function addTag(Tag $tags)
     {
         foreach ($tags as $tag) {
@@ -309,10 +315,12 @@ class Post
             }
         }
     }
+
     public function removeTag(Tag $tag)
     {
         $this->tags->removeElement($tag);
     }
+
     public function getTags()
     {
         return $this->tags;
@@ -451,8 +459,4 @@ class Post
     {
         $this->contentChangedBy = $contentChangedBy;
     }
-
-
-
 }
-

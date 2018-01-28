@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Dat Dao <datagit@yahoo.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Gedmo\Mapping\Annotation as Gedmo;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * Image
+ * Image.
  *
  * @ORM\Table(name="media")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MediaRepository")
@@ -47,12 +56,13 @@ class Media
 
     /**
      * @Vich\UploadableField(mapping="media_mapping", fileNameProperty="mediaName")
+     *
      * @var File
      */
     private $mediaFile;
 
     /**
-     * @var \DateTime $createdAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
@@ -60,7 +70,7 @@ class Media
     private $createdAt;
 
     /**
-     * @var \DateTime $updatedAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
@@ -68,7 +78,7 @@ class Media
     private $updatedAt;
 
     /**
-     * @var string $createdBy
+     * @var string
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
@@ -76,7 +86,7 @@ class Media
     private $createdBy;
 
     /**
-     * @var string $updatedBy
+     * @var string
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
@@ -89,9 +99,6 @@ class Media
      * @ORM\Column(name="tags", type="simple_array", length=255, nullable=true)
      */
     private $tags;
-
-
-
 
     /**
      * Get id.
@@ -251,6 +258,4 @@ class Media
     {
         $this->tags = $tags;
     }
-
-    
 }

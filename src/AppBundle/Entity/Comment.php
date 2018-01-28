@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Dat Dao <datagit@yahoo.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Comment
+ * Comment.
  *
  * @ORM\Table(name="comment")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentRepository")
@@ -69,7 +78,7 @@ class Comment
     private $post;
 
     /**
-     * @var \DateTime $createdAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
@@ -77,7 +86,7 @@ class Comment
     private $createdAt;
 
     /**
-     * @var \DateTime $updatedAt
+     * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
@@ -85,7 +94,7 @@ class Comment
     private $updatedAt;
 
     /**
-     * @var \DateTime $contentChangedAt
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="change", field={"position", "name"})
@@ -93,7 +102,7 @@ class Comment
     private $contentChangedAt;
 
     /**
-     * @var string $createdBy
+     * @var string
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
@@ -101,7 +110,7 @@ class Comment
     private $createdBy;
 
     /**
-     * @var string $updatedBy
+     * @var string
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
@@ -109,7 +118,7 @@ class Comment
     private $updatedBy;
 
     /**
-     * @var string $contentChangedBy
+     * @var string
      *
      * @ORM\Column(name="content_changed_by", type="string", nullable=true)
      * @Gedmo\Blameable(on="change", field={"name", "position"})
@@ -122,7 +131,7 @@ class Comment
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -132,7 +141,7 @@ class Comment
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -146,7 +155,7 @@ class Comment
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -156,7 +165,7 @@ class Comment
     }
 
     /**
-     * Set publishedAt
+     * Set publishedAt.
      *
      * @param \DateTime $publishedAt
      *
@@ -170,7 +179,7 @@ class Comment
     }
 
     /**
-     * Get publishedAt
+     * Get publishedAt.
      *
      * @return \DateTime
      */
@@ -185,6 +194,7 @@ class Comment
     public function isLegitComment(): bool
     {
         $containsInvalidCharacters = false !== mb_strpos($this->content, '@');
+
         return !$containsInvalidCharacters;
     }
 
@@ -223,7 +233,7 @@ class Comment
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return sprintf("author: %s:%s", $this->author, $this->content);
+        return sprintf('author: %s:%s', $this->author, $this->content);
     }
 
     /**
@@ -321,8 +331,4 @@ class Comment
     {
         $this->contentChangedBy = $contentChangedBy;
     }
-
-
-
 }
-

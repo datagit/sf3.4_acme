@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Dat Dao <datagit@yahoo.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -9,12 +18,11 @@ use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ApiResource
- * 
  */
 class User extends BaseUser
 {
@@ -52,6 +60,7 @@ class User extends BaseUser
 
         return $this;
     }
+
     public function getFullname()
     {
         return $this->fullname;
@@ -62,4 +71,3 @@ class User extends BaseUser
         return $user instanceof self && $user->id === $this->id;
     }
 }
-

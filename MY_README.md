@@ -40,5 +40,6 @@ $ composer require egeloen/ckeditor-bundle
 # http://symfony.com/doc/current/bundles/EasyAdminBundle/integration/ivoryckeditorbundle.html
 $ composer require friendsofphp/php-cs-fixer
 # https://github.com/friendsofphp/php-cs-fixer
-
+$ php-cs-fixer fix  --dry-run  --using-cache=no src/AppBundle/Entity/Tag.php
+$ php-cs-fixer fix
 ```
