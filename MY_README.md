@@ -46,5 +46,9 @@ $ php-cs-fixer fix
 $ php ./vendor/bin/simple-phpunit
 $ php ./vendor/bin/simple-phpunit tests/AppBundle/Util/CalculatorTest.php
 $ php-cs-fixer fix src/AppBundle/Util/Calculator.php --dry-run --using-cache=no
+$ composer require --dev easycorp/easy-deploy-bundle
+# https://github.com/EasyCorp/easy-deploy-bundle/blob/master/doc/getting-started.md
+$ php bin/console deploy staging --dry-run
+$ php bin/console rollback staging --dry-run
 
 ```
