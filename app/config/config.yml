@@ -20,7 +20,7 @@ framework:
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
         strict_requirements: ~
-    form: ~
+    form: { enabled: true }
     csrf_protection: ~
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
@@ -83,5 +83,5 @@ fos_user:
 #st for APi
 api_platform:
     enable_fos_user: true
-framework:
-    form: { enabled: true }
+#framework:
+#    form: { enabled: true }

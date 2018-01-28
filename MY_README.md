@@ -41,5 +41,10 @@ $ composer require egeloen/ckeditor-bundle
 $ composer require friendsofphp/php-cs-fixer
 # https://github.com/friendsofphp/php-cs-fixer
 $ php-cs-fixer fix  --dry-run  --using-cache=no src/AppBundle/Entity/Tag.php
+$ php-cs-fixer fix /path/to/code --dry-run --using-cache=no
 $ php-cs-fixer fix
+$ php ./vendor/bin/simple-phpunit
+$ php ./vendor/bin/simple-phpunit tests/AppBundle/Util/CalculatorTest.php
+$ php-cs-fixer fix src/AppBundle/Util/Calculator.php --dry-run --using-cache=no
+
 ```
