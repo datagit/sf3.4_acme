@@ -50,5 +50,6 @@ $ composer require --dev easycorp/easy-deploy-bundle
 # https://github.com/EasyCorp/easy-deploy-bundle/blob/master/doc/getting-started.md
 $ php bin/console deploy staging --dry-run
 $ php bin/console rollback staging --dry-run
+# https://github.com/ansistrano/deploy
 
 ```
