@@ -51,5 +51,14 @@ $ composer require --dev easycorp/easy-deploy-bundle
 $ php bin/console deploy staging --dry-run
 $ php bin/console rollback staging --dry-run
 # https://github.com/ansistrano/deploy
-
+# https://help.github.com/enterprise/2.12/user/articles/checking-for-existing-ssh-keys/
+# https://help.github.com/articles/testing-your-ssh-connection/
+$ composer require cmen/google-charts-bundle
+# https://packagist.org/packages/cmen/google-charts-bundle
+```
+#Frontend
+```
+# nodejs, webpack series
+# https://webpack.js.org/configuration/
+# https://kipalog.com/posts/Webpack-series----gioi-thieu-tu-co-ban-den-cang-co--D--ep1
 ```

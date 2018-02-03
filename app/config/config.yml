@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: easyadmin/ }
+    - { resource: packages/ }
     - { resource: stof_doctrine_extensions.yml }
     - { resource: vich_uploader.yml }
 
